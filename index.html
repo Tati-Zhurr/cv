@@ -41,8 +41,8 @@
  <section class="section" id="contacts">
     <h2 class="section-title">Contacts</h2>
         <ul class="list">
-            <li class="item"><img src="./assets/img/phone.png" alt="" width="14" height="14" class="label-contacts"> +34 644758962</li>
-            <li class="item"><img src="./assets/img/email.png" alt="" width="20" height="15" class="label-contacts"> zhtv88@gmail.com</li>
+            <li class="item-contacts"><img src="./assets/img/phone.png" alt="" width="14" height="14" class="label-contacts"> +34 644758962</li>
+            <li class="item-contacts"><img src="./assets/img/email.png" alt="" width="20" height="15" class="label-contacts"> zhtv88@gmail.com</li>
         </ul> 
 </section> 
 
@@ -67,12 +67,18 @@
 <section class="section" id="code">
     <h2 class="section-title">Code</h2>
     <pre class="code">
-        //Multiply Function
-        const multiply = (num1, num2) => {
-        return num1 * num2;
-        };
-        let resulMultiply = multiply(3,5);
-        console.log (resulMultiply);</pre>
+ //Currying vs. Partial Application
+
+ function curryPartial(fn, ...par) {
+  const curried = (...args) => 
+    fn.length > args.length ? 
+      curryPartial(fn.bind(null, ...args)) 
+        : fn(...args);
+    curried.toString = fn; 
+    return par.length ? curried(...par)
+     : curried;
+  }
+    </pre>
 </section> 
 
 <section class="section" id="jobs">
